@@ -1,2 +1,3 @@
-# map672
-Modules for NMP MAP672 course.
+# Xi Wang's MAP 672 Modules
+
+I am excited to learn JS programming
