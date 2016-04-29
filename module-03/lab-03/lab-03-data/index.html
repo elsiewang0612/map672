@@ -57,8 +57,8 @@
     <div id='map'></div>
 
     <footer>
-        <p>Map authored by YOUR NAME</p>
-        <p>Additional information about the data and map goes here.</p>
+        <p>Map authored by Xi Wang</p>
+        <p>The coordinate and population information of cities are from Google Search.</p>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis urna magna, maximus nec laoreet sit amet, dictum ultricies nibh. Ut id auctor lacus. Nam a dolor et justo luctus luctus. Duis a elit eget risus dictum vehicula id eu elit. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Sed sed enim nisl. Vestibulum commodo imperdiet lacus, sed facilisis erat placerat sit amet. Nulla consequat malesuada neque eget aliquet. Integer non convallis nisl, gravida ultrices ex. Fusce nec vestibulum elit. Sed elementum lectus ipsum, vulputate elementum ex laoreet a. Aenean eu ex varius, varius felis vitae, efficitur nulla. Quisque pretium laoreet ante, in sodales dui vehicula at. Mauris eu sem sapien.
         </p>
     </footer>
@@ -150,27 +150,27 @@
         L.marker([city1Lat,city1Lon]).addTo(map)
             .bindPopup(city1Popup);
         
-//         CITY2 MARKER CODE HERE
-//        var city2Popup = "<b>"+city2Name+"</b><br>"
-//                        +"<b>population</b>: "+city2Pop;
-//        
-//        if(city2Capital == true) {
-//            city2Popup += "<br>Capital of the Commonwealth of Kentucky";   
-//        }
-//        
-//        L.marker([city2Lat,city2Lon]).addTo(map)
-//            .bindPopup(city2Popup);
+        //CITY2 MARKER CODE HERE
+        var city2Popup = "<b>"+city2Name+"</b><br>"
+                        +"<b>population</b>: "+city2Pop;
         
-//         CITY3 MARKER CODE HERE
-//        var city3Popup = "<b>"+city3Name+"</b><br>"
-//                        +"<b>population</b>: "+city3Pop;
-//        
-//        if(city3Capital == true) {
-//            city3Popup += "<br>Capital of the Commonwealth of Kentucky";   
-//        }
-//        
-//        L.marker([city3Lat,city3Lon]).addTo(map)
-//            .bindPopup(city3Popup);
+        if(city2Capital == true) {
+            city2Popup += "<br>Capital of the Commonwealth of Kentucky";   
+        }
+        
+        L.marker([city2Lat,city2Lon]).addTo(map)
+            .bindPopup(city2Popup);
+        
+        //CITY3 MARKER CODE HERE
+        var city3Popup = "<b>"+city3Name+"</b><br>"
+                        +"<b>population</b>: "+city3Pop;
+        
+        if(city3Capital == true) {
+            city3Popup += "<br>Capital of the Commonwealth of Kentucky";   
+        }
+        
+        L.marker([city3Lat,city3Lon]).addTo(map)
+            .bindPopup(city3Popup);
           
     </script>
     
