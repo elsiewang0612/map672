@@ -60,7 +60,9 @@
     <footer>
         <p>Map authored by Xi Wang</p>
         <p>Additional information about the data and map goes here.</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis urna magna, maximus nec laoreet sit amet, dictum ultricies nibh. Ut id auctor lacus. Nam a dolor et justo luctus luctus. Duis a elit eget risus dictum vehicula id eu elit. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Sed sed enim nisl. Vestibulum commodo imperdiet lacus, sed facilisis erat placerat sit amet. Nulla consequat malesuada neque eget aliquet. Integer non convallis nisl, gravida ultrices ex. Fusce nec vestibulum elit. Sed elementum lectus ipsum, vulputate elementum ex laoreet a. Aenean eu ex varius, varius felis vitae, efficitur nulla. Quisque pretium laoreet ante, in sodales dui vehicula at. Mauris eu sem sapien.
+        <p>This map presents the east south area of China. Shanghai, Nanjing and Hangzhou are three major cities in this area based on the size, population and the level of development. In this map, these three cities are identified by blue markers. Not only the locations of the cities are presented, also the basic information of each of the cities are provided when clicks the markers. Shanghai has the largest population. It is the business center of China. Although Beijing is the capital city of China in terms of politics, Shanghai is another 'capital' which is leading the economy development. 
+        The coordinate, population of the cities are from Google Search and Map.
+            
         </p>
     </footer>
 
@@ -91,29 +93,26 @@
         
         var cityPops = [14350000, 3624000, 2451000];
         console.log(cityPops);
-        var cityCapital = [false, false, false];
+        var cityCapital = [true, false, false];
         console.log(cityCapital);
     
-        
-
-//        for(/* add code here */) {
-//            
-//            var popup = "<b>"+/* add code here */+"</b><br>"
-//                            +"<b>population</b>: "+/* add code here */;
-//
-//            if(/* add code here */) {
-//               
-//                popup += "<br>Is the capital city."; 
-//                
-//            } 
-//            
-//            L.marker(/* add code here */).addTo(map)
-//                .bindPopup(popup);
-//        }
+        for(var i = 0; i < cities.length; i++) {            
+           var popup = "<b>"+cities[i]+"</b><br>"
+                            +"<b>population</b>: "+cityPops[i];
+            
+            if(cities[i] == "Shanghai") {
+                popup += "<br>Is the capital city.";   
+            } else {
+                popup += "<br>Is Not the capital city.";
+            }
+            
+            L.marker(cityCoords[i]).addTo(map)
+                .bindPopup(popup);
+        }
         
         // end writing/editing Lab 04 code here
         
-          
+         
     </script>
     
 </body>
