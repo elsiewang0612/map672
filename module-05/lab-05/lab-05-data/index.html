@@ -107,13 +107,23 @@
     button.addEventListener("click", function() {
          
         var units = prompt('Enter the units for calculating density', 'Enter "miles" or "km"');
-        
-    // call a function named mapCities, and send the units variable as an argument
-        
-        mapCities(units);
+        while ((units != "miles") || (units != "km")){
+            units = prompt('Please enter correct units!', 'Enter "miles" or "km"');
+            if((units == "miles") || (units == "km")){
+                break;
+            }
+        }
+ // call a function named mapCities, and send the units variable as an argument
+    
+    mapCities(units);
 
     }); // addEventListener callback function ends here
 
+    
+        while ((units != "miles") || (units != "km")){
+            alert("Please type in correct unit!");
+        }
+    
         function mapCities(units) {
             for(var i = 0; i < cities.length; i++) {
                 console.log(cityPops[i]);
