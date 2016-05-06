@@ -56,14 +56,14 @@
 
 <body>
     <header>
-        <h1>Map Title</h1>
-        <h2>Map Subtitle</h2>
+        <h1>Population Density of Major Cities in Southeast of China</h1>
+        <h2>Shanghai, Nanjing, Hangzhou</h2>
     </header>
 
     <div id='map'></div>
     <button id='map-cities'>Map Cities</button>
     <footer>
-        <p>Map authored by YOUR NAME</p>
+        <p>Map authored by Xi Wang</p>
         <p>Additional information about the data and map goes here.</p>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis urna magna, maximus nec laoreet sit amet, dictum ultricies nibh. Ut id auctor lacus. Nam a dolor et justo luctus luctus. Duis a elit eget risus dictum vehicula id eu elit. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Sed sed enim nisl.
         </p>
@@ -106,7 +106,9 @@
     
     button.addEventListener("click", function() {
          
-        var units = prompt('Enter the units for calculating density', 'Enter "miles" or "km"');
+    var units = prompt('Enter the units for calculating density', 'Enter "miles" or "km"');
+        
+    //add a while loop to test the vadility of input
         while ((units != "miles") || (units != "km")){
             units = prompt('Please enter correct units!', 'Enter "miles" or "km"');
             if((units == "miles") || (units == "km")){
@@ -118,11 +120,6 @@
     mapCities(units);
 
     }); // addEventListener callback function ends here
-
-    
-        while ((units != "miles") || (units != "km")){
-            alert("Please type in correct unit!");
-        }
     
         function mapCities(units) {
             for(var i = 0; i < cities.length; i++) {
