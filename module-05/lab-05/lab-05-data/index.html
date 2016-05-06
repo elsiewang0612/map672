@@ -118,11 +118,13 @@
             for(var i = 0; i < cities.length; i++) {
                 console.log(cityPops[i]);
                 console.log(cityAreas[i]);
-                calcPopDensity(cityPops[i], cityAreas[i], units);
                 var density = calcPopDensity(cityPops[i], cityAreas[i], units);
+                var popup = "<b>"+cities[i]+"</b><br>"
+                            +"<b>Density</b>: "+density.toFixed(2);
+                L.marker(cityCoords[i]).addTo(map)
+                                 .bindPopup(popup);
                 console.log(density);
             }
-            return density;
         }  
     // write a function here named mapCities so that it accepts units as a parameter
         function calcPopDensity(cityPops, cityAreas, units) {
@@ -132,14 +134,12 @@
               }
             return density;
        }
+    
              
     // write a function named calcPopDensity here so that it accepts a single city's
     // population, area, and the value for units determined by the user
 
- //var popup = "<b>"+cities[i]+"</b><br>"; 
- //               L.marker(cityCoords[i]).addTo(map)
- //               .bindPopup(popup);
-    
+ 
     
     
 
