@@ -112,9 +112,14 @@
         
         for(var i = 0; i < cities.length; i++){
             var props = cities[i].properties;
+            var popup = "I am a temporary string value";
+            L.marker(props.coordinates).addTo(map)
+            .bindPopup(popup); 
             console.log(cities[i].properties.population);
             console.log(props);
         };
+        
+         
         
           
     </script>
