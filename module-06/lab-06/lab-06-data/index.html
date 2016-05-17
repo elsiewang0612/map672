@@ -53,6 +53,10 @@
         .indiana-red {
             color: #dd3333;
         }
+        img {
+            height: 80px;
+            max-width: 80px;
+        }
         
     </style>
 </head>
@@ -139,7 +143,7 @@
             else if (state == "IN") {
                var colorClass = "indiana-red"; 
             }
-            var popup = "<img class='logo' src='"+ logo +"'>+"<div class='"+colorClass+"'><b>"+name+"</b><br>"+"<b>Population</b>: "+pop.toLocaleString()+"<div>";
+            var popup = "<img class='logo' src='"+ logo +"'>"+"<div class='"+colorClass+"'><b>"+name+"</b><br>"+"<b>Population</b>: "+pop.toLocaleString()+"<div>";
             L.marker(props.coordinates).addTo(map)
             .bindPopup(popup); 
         }
