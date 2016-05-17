@@ -47,6 +47,12 @@
         .kentucky-blue {
             color: #165bb6;
         }
+        .ohio-purple {
+            color: #6b58a8;
+        }
+        .indiana-red {
+            color: #dd3333;
+        }
         
     </style>
 </head>
@@ -112,15 +118,28 @@
         
         for(var i = 0; i < cities.length; i++){
             var props = cities[i].properties;
-            var popup = "I am a temporary string value";
-            L.marker(props.coordinates).addTo(map)
-            .bindPopup(popup); 
             console.log(cities[i].properties.population);
             console.log(props);
+            
+            buildPopup(cities[i].name, cities[i].properties.population,cities[i].properties.state);
         };
         
-         
-        
+        function buildPopup(name, pop, state) {
+            
+            if(state == "KY") {
+               var colorClass = "kentucky-blue";
+            } 
+            else if (state == "OH") {
+               var colorClass = "ohio-purple"; 
+            }
+            else if (state == "IN") {
+               var colorClass = "indiana-red"; 
+            }
+            var popup = "<div class='"+colorClass+"'><b>"+name+"</b><br>"+
+                        "<b>Population</b>: "+pop.toLocaleString()+"<div>";
+            L.marker(props.coordinates).addTo(map)
+            .bindPopup(popup); 
+        }
           
     </script>
     
