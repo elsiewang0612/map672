@@ -125,10 +125,10 @@
             console.log(cities[i].properties.population);
             console.log(props);
             
-            buildPopup(cities[i].name, cities[i].properties.population,cities[i].properties.state);
+            buildPopup(cities[i].properties.logo, cities[i].name, cities[i].properties.population,cities[i].properties.state);
         };
         
-        function buildPopup(name, pop, state) {
+        function buildPopup(logo, name, pop, state) {
             
             if(state == "KY") {
                var colorClass = "kentucky-blue";
@@ -139,8 +139,7 @@
             else if (state == "IN") {
                var colorClass = "indiana-red"; 
             }
-            var popup = "<div class='"+colorClass+"'><b>"+name+"</b><br>"+
-                        "<b>Population</b>: "+pop.toLocaleString()+"<div>";
+            var popup = "<img class='logo' src='"+ logo +"'>+"<div class='"+colorClass+"'><b>"+name+"</b><br>"+"<b>Population</b>: "+pop.toLocaleString()+"<div>";
             L.marker(props.coordinates).addTo(map)
             .bindPopup(popup); 
         }
