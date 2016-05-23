@@ -129,7 +129,10 @@
             console.log(cities[i].properties.population);
             console.log(props);
             
-            buildPopup(cities[i].properties.logo, cities[i].name, cities[i].properties.population,cities[i].properties.state);
+            var popup = buildPopup(cities[i].properties.logo, cities[i].name, cities[i].properties.population,cities[i].properties.state);
+            
+            L.marker(props.coordinates).addTo(map)
+                .bindPopup(popup); 
         };
         
         function buildPopup(logo, name, pop, state) {
@@ -144,8 +147,9 @@
                var colorClass = "indiana-red"; 
             }
             var popup = "<img class='logo' src='"+ logo +"'>"+"<div class='"+colorClass+"'><b>"+name+"</b><br>"+"<b>Population</b>: "+pop.toLocaleString()+"<div>";
-            L.marker(props.coordinates).addTo(map)
-            .bindPopup(popup); 
+            
+            return popup;
+
         }
           
     </script>
