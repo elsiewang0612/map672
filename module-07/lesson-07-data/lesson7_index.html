@@ -102,6 +102,10 @@
         
         var center = map.getCenter();
         console.log(center.lat, center.lng);
+        
+        var bounds = map.getBounds();
+        var bottomLeft = bounds.getSouthWest();
+        console.log(bottomLeft.lat, bottomLeft.lng);
                   
     </script>
     
