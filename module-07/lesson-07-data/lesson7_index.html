@@ -128,7 +128,10 @@
         //var city = L.marker([40.21, -88.154]);
         //city.addTo(map);
         //city.bindPopup(popup);
-        var redIguanaCircle = L.circle(redIguanaLocation, 400);
+        var redIguanaCircle = L.circle(redIguanaLocation, 400, {
+            color: "#d72b1e",
+            fillColor: "#d72b1e"
+        });
         redIguanaCircle.addTo(map);
                   
     </script>
