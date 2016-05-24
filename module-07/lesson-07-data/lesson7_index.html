@@ -128,11 +128,21 @@
         //var city = L.marker([40.21, -88.154]);
         //city.addTo(map);
         //city.bindPopup(popup);
-        var redIguanaCircle = L.circle(redIguanaLocation, 400, {
-            color: "#d72b1e",
-            fillColor: "#d72b1e"
-        });
+        //var redIguanaCircle = L.circle(redIguanaLocation, 400, {
+        //    color: "#d72b1e",
+        //    fillColor: "#d72b1e"
+        //});
+        var redIguanaLocation = L.latLng(40.7718,-111.9124);
+        var redIguanaCircle = L.circle(redIguanaLocation, 400);
         redIguanaCircle.addTo(map);
+        
+        redIguanaCircle.setStyle({
+            color: "#d72b1e",
+            weight: 15,
+            fillColor: "#d72b1e",
+            fillOpacity: 1
+        });
+        
                   
     </script>
     
