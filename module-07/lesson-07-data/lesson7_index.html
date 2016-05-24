@@ -175,6 +175,59 @@
         });
         });
         
+        //establish a layerGroup named "iguanaRestaruants"
+        var iguanaRestaurants = L.layerGroup();
+        //define the color properties of each layer and give the variabe name for each of them
+        var redIguanaOptions = {
+        //the color of the circle outline is red
+            color: 'red',
+        //the color of the cicle fill is red
+            fillColor: 'red'
+        };
+        //another variable name is blueIguanaOptions
+        var blueIguanaOptions = {
+        //the color of the circle outline is blue
+            color: '#03f',
+        //the color of the circle fill is blue
+            fillColor: '#03f'
+        };
+        //Create the circle vector (center coordinate, radius, color properties) for each layer
+        var redIguana = L.circle([40.7718,-111.9124], 400, redIguanaOptions);
+        //define the color of each target layer for the definition of action later
+        redIguana.color = 'red';
+        //complete the propertity definition of redIguana and add them to the layer group 
+        redIguana.addTo(iguanaRestaurants);
+        //properties definition for another layer same as redIguana
+        var blueIguana = L.circle([40.7657, -111.8930], 300, blueIguanaOptions);
+        blueIguana.color = 'blue';
+        //complete the properties of blueIguana and add it to the layer group
+        blueIguana.addTo(iguanaRestaurants);
+        //add the two layers features to the map
+        iguanaRestaurants.addTo(map);
+    
+    //for each layer, when the mouse over the circle, the style of the circle will change. No matter which circle we do the mouseover, the color the circle will change to yellow.    
+    iguanaRestaurants.eachLayer(function(layer) {
+    //when the mouse over the circle of redIguana or blueIguana
+        layer.on('mouseover', function(e) {
+    //deifnition of the function will happen when mourseover
+            e.target.setStyle({
+    //the color of cirle outline become yellow
+                color: 'yellow',
+    //the color if the circle fill become yellow
+                fillColor: 'yellow'
+            });
+        });
+    //when the mouse out the circle of redIguana or blueIguana
+        layer.on('mouseout', function(e) {
+    //if the circle is redIguana when we choose to move the mouseover, when we do mouseout, the color will become the red color as it is suppose to be.
+            if(e.target.color == 'red') {
+                e.target.setStyle(redIguanaOptions);
+    //if the circle is blueIguana when we choose to move the mouseover, when we do mouseout, the color will become the blue color as it is suppose to be.
+            } else if (e.target.color == 'blue') {
+                    e.target.setStyle(blueIguanaOptions);      
+            }
+        });
+     });
                   
     </script>
     
