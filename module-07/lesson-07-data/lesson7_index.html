@@ -109,12 +109,27 @@
         
         L.marker([38.0297, -84.4947]).addTo(map);
         
+        //var redIguanaLocation = L.latLng(40.7718, -111.9124);
+        //var redIguanaMarker = L.marker(redIguanaLocation, {
+        //    draggable: true,
+        //    opacity: .8
+        //});
+        //redIguanaMarker.addTo(map);
         var redIguanaLocation = L.latLng(40.7718, -111.9124);
         var redIguanaMarker = L.marker(redIguanaLocation, {
-            draggable: true,
-            opacity: .4
+            draggable: true
         });
         redIguanaMarker.addTo(map);
+        //redIguanaMarker.on('drag', function(e) {
+        //    console.log(e.target.getLatLng())
+        //});
+        redIguanaMarker.bindPopup("Best Mexican food in Salt Lake City!");
+        
+        //var city = L.marker([40.21, -88.154]);
+        //city.addTo(map);
+        //city.bindPopup(popup);
+        var redIguanaCircle = L.circle(redIguanaLocation, 400);
+        redIguanaCircle.addTo(map);
                   
     </script>
     
