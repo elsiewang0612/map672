@@ -149,6 +149,13 @@
         redIguanaCircle.setRadius(400);
         redIguanaCircle.addTo(map);
         
+        var iguanaRestaurants = L.layerGroup();
+        var redIguana = L.circle([40.778, -111.9124], 400);
+        redIguana.addTo(iguanaRestaurants);
+        var blueIguana = L.circle([40.7657, -111.8930], 300);
+        blueIguana.addTo(iguanaRestaurants);
+        iguanaRestaurants.addTo(map);
+        
                   
     </script>
     
