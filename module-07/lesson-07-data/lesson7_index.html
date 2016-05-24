@@ -90,7 +90,7 @@
         //var map = L.map('map', options);
         
         map.on('click', function(e) {
-            console.log(e.latLng);
+            console.log(e.latlng);
         });
         
         var center = map.getCenter();
@@ -110,7 +110,10 @@
         L.marker([38.0297, -84.4947]).addTo(map);
         
         var redIguanaLocation = L.latLng(40.7718, -111.9124);
-        var redIguanaMarker = L.marker(redIguanaLocation);
+        var redIguanaMarker = L.marker(redIguanaLocation, {
+            draggable: true,
+            opacity: .4
+        });
         redIguanaMarker.addTo(map);
                   
     </script>
