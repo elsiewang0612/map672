@@ -156,6 +156,10 @@
         blueIguana.addTo(iguanaRestaurants);
         iguanaRestaurants.addTo(map);
         
+        iguanaRestaurants.eachLayer(function(layer) {
+            console.log(layer);
+        });
+        
                   
     </script>
     
