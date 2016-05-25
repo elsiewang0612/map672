@@ -89,12 +89,34 @@
         })
     }).addTo(map);
         
-    var CoorClick = map.on('click', function(e){
+// Method 1
         
-        // output is o.LatLng {lat: 40.863679665481676, lng: -114.57847595214842}  
-        console.log(e.latlng); 
+   //var clickLocation = map.on('click', function(e){
+     //  console.log(e.latlng);
+   //}); 
         
+   //var clickMarker = L.marker(clickLocation, {
+    //    draggable: true,
+      //  opacity: 0.8});
+   //var distance = redIguana.distanceTo(clickLocation)/1000;
+     //   console.log(distance);
+   //clickMarker.addTo(map).bindPopup("<b>"+distance.toFixed(2)+"km from Red Iguana");
+    
+// Method 2       
+    
+    var clickLocation = map.on('click', function(e){  
+    var clickMarker = L.marker(e.latlng, {
+        draggable: true,
+        opacity: 0.8});
+    console.log(e.latlng);
+    var distance = L.latLng(40.7718,-111.9124).distanceTo(e.latlng)/1000;
+        console.log(distance);
+        clickMarker.addTo(map).bindPopup("<b>"+distance.toFixed(2)+"km from Red Iguana").openPopup();
     });
+
+ 
+   
+
                   
     </script>
     
