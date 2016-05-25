@@ -89,12 +89,12 @@
         })
     }).addTo(map);
               
-    
+        
     var clickLocation = map.on('click', function(e){  
     var clickMarker = new L.marker(e.latlng, {
         draggable: true,
         opacity: 0.8});
-    console.log(e.latlng);
+        console.log(e.latlng);
     var distance = L.latLng(40.7718,-111.9124).distanceTo(e.latlng)/1000;
         console.log(distance);
         clickMarker.addTo(map).bindPopup("<b>"+distance.toFixed(2)+"km from Red Iguana").openPopup();
@@ -104,9 +104,9 @@
     function ondragend() {
     var m = clickMarker.getLatLng();
     var distanceUpdate = L.latLng(40.7718,-111.9124).distanceTo(m)/1000;
-        clickMarker.addTo(map).bindPopup("<b>"+distanceUpdate.toFixed(2)+"km from Red Iguana").openPopup();
+        clickMarker.addTo(map).bindPopup("<b>"+distanceUpdate.toFixed(2)+"km from Red Iguana").openPopup();    
     }
-        
+       
     });
    
 
