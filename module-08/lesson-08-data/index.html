@@ -75,55 +75,13 @@ var tiles = L.tileLayer('http://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.p
 });
 tiles.addTo(map);
         
-var plants = {"type":"FeatureCollection",
-              "features":[
-                  {
-                      "type":"Feature",
-                      "properties":{
-                          "code":2,
-                          "plant_name":"Bankhead Dam",
-                          "capacity_mw":56,
-                          "fuel_source":{
-                              "Hydro":56
-                          }
-                      },
-                          "geometry":{
-                              "type":"Point",
-                              "coordinates":[-87.35682,33.45867]
-                            }
-                  },{
-                      "type":"Feature",
-                      "properties":{
-                          "code":3,
-                          "plant_name":"Barry",
-                          "capacity_mw":2574.5,
-                          "fuel_source":{
-                              "Coal":1612.5,
-                              "Natural Gas":962
-                          }
-                      },
-                          "geometry":{
-                              "type":"Point",
-                              "coordinates":[-88.0103,31.0069]
-                          }
-                  },{
-                      "type":"Feature",
-                      "properties":{
-                          "code":4,
-                          "plant_name":"Walter Bouldin Dam",
-                          "capacity_mw":225.9,
-                          "fuel_source":{
-                              "Hydro":225.9
-                          }
-                      },
-                          "geometry":{
-                              "type":"Point",
-                              "coordinates":[-86.28306,32.58389]
-                          }
-                  }
-                  ]
-             }
 console.log(plants);
+        
+L.geoJson(plants, {
+    pointToLayer: function(feature, latlng) {
+        return L.circleMarker(latlng);
+    }
+}).addTo(map);
                   
     </script>
     
