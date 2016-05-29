@@ -88,8 +88,7 @@ L.geoJson(plants, {
         });
     },
     filter: function(feature, layer) {
-        if(feature.properties.capacity_mw < 500 &&
-          feature.properties.fuel_source.Coal){
+        if(feature.properties.fuel_source.Hydro > 150){
             return feature;
         }
     }
