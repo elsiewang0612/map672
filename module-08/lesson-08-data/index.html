@@ -82,10 +82,15 @@ L.geoJson(plants, {
         return L.circleMarker(latlng, {
             color: 'orange',
             weight: 1,
-            fillColor: 'yellow',
-            fillOpacity: 1,
+            fillColor: 'blue',
+            fillOpacity: .8,
             radius: 2
         });
+    },
+    filter: function(feature, layer) {
+        if(feature.properties.fuel_source.Hydro){
+            return feature;
+        }
     }
 }).addTo(map);
                   
