@@ -63,7 +63,7 @@
     <script>
 
       // build your Leaflet map here!
-        var place = {
+  var places = {
   "type": "FeatureCollection",
   "features": [
     {
@@ -78,8 +78,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -3576.4453124999995,
-          58.944341176136966
+          23.543701171875,
+          58.945758027716465
         ]
       }
     },
@@ -95,7 +95,7 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -3575.247802734375,
+          24.7357177734375,
           59.43390314475794
         ]
       }
@@ -112,8 +112,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -3573.28125,
-          58.36139381804461
+          26.728363037109375,
+          58.37147760096145
         ]
       }
     },
@@ -129,13 +129,13 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -3575.489501953125,
-          58.37291790620775
+          24.510498046875,
+          58.38011855064708
         ]
       }
     }
   ]
-        }
+        };
         
 var map = L.map('map', {
     center: [58.73, 25.67],
@@ -148,6 +148,9 @@ var tiles = L.tileLayer('http://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.p
     maxZoom: 19
 });
 tiles.addTo(map);
+        
+var placesLeaflet = L.geoJson(places).addTo(map);
+console.log(places);
                   
     </script>
     
