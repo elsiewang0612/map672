@@ -154,8 +154,7 @@ console.log(places);
 
 var placeLeaflet2 = L.geoJson(places, {
     pointToLayer: function(feature, latlng) {
-        console.log(feature);
-        return L.circle(latlng, 20000);
+        return L.circle(latlng, feature.properties.size * 100);
     }
 }).addTo(map);
                   
