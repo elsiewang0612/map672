@@ -87,10 +87,15 @@
                  weight: 1,
                  fillColor: 'yellow',
                  fillOpacity: .8,
-                 radius: feature.properties.capacity_mw * .01
+                 radius: getRadius(feature.properties.capacity_mw)
               });   
           }
       }).addTo(map);
+        
+    function getRadius(area) {
+                     var radius = Math.sqrt(area/Math.PI);
+                     return radius * .6;
+                 };
 
                   
     </script>
