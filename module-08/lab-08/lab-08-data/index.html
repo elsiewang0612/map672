@@ -75,6 +75,10 @@
       });  
       
       tiles.addTo(map);
+    
+      plants.features.sort(function(a, b) {
+          return b.properties.capacity_mw - a.properties.capacity_mw;
+      });
       
       L.geoJson(plants, {
           pointToLayer: function(feature,latlng) {
