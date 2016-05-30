@@ -102,7 +102,12 @@ tiles.addTo(map);
                       color: '#009900'
                   });
               });
-              layer.bindPopup('hi i am a circle');
+              
+              var popup = "<b>"+feature.properties.plant_name+"</b><br>"
+                           +"<b>"+feature.properties.capacity_mw+" MW"+"</b><br>"
+                           +"<b>Coal</b>: "+feature.properties.fuel_source.Coal+" MW";
+                            
+              layer.bindPopup(popup);
           },
          filter: function(feature, layer) {
               if(feature.properties.fuel_source.Coal){
@@ -115,10 +120,6 @@ tiles.addTo(map);
                      var radius = Math.sqrt(area/Math.PI);
                      return radius * .6;
                  };
-        
-        
-        
-    
 
                   
     </script>
