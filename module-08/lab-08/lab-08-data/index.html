@@ -89,13 +89,36 @@
                  fillOpacity: .8,
                  radius: getRadius(feature.properties.capacity_mw)
               });   
-          }
+          },
+          onEachFeature: function(feature,layer) {
+              console.log(layer);
+              layer.on('mouseover', function(){
+                  layer.setStyle({
+                      fillColor: 'red'
+                  });
+              });
+              layer.on('mouseout', function(){
+                  layer.setStyle({
+                      fillColor: 'yellow'
+                  });
+              });
+              layer.bindPopup('hi i am a circle');
+          },
+         filter: function(feature, layer) {
+         if(feature.properties.fuel_source.Coal){
+            return feature;
+        }
+         }
       }).addTo(map);
         
-    function getRadius(area) {
+        function getRadius(area) {
                      var radius = Math.sqrt(area/Math.PI);
                      return radius * .6;
                  };
+        
+        
+        
+    
 
                   
     </script>
