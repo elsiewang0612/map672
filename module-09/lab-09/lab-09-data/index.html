@@ -75,6 +75,74 @@
       });  
       
       tiles.addTo(map);
+        
+      var coalLayer = L.geoJson(plants, {
+      pointToLayer: function(feature,latlng) {
+          return L.circleMarker(latlng);
+      },
+      filter: function(feature) {
+          if(feature.properties.fuel_source.Coal) {
+            return feature;
+          }
+      },
+      style: function(feature) {
+          return {
+            color: '#FF0000',
+            fillColor: '#FF0000',
+            weight: 1,
+            stroke: 1,
+            fillOpacity: .8,
+            radius: getRadius(feature.properties.fuel_source.Coal)
+          } 
+      } 
+  }).addTo(map);
+        
+      var hydroLayer = L.geoJson(plants, {
+    pointToLayer: function(feature,latlng) {
+        return L.circleMarker(latlng);
+    },
+    filter: function(feature) {
+        if(feature.properties.fuel_source.Hydro) {
+            return feature;
+        }
+    },
+    style: function(feature) {
+        return {
+            color: '#1f78b4',
+            fillColor: '#1f78b4',
+            weight: 1,
+            stroke: 1,
+            fillOpacity: .8,
+            radius: getRadius(feature.properties.fuel_source.Hydro)
+        } 
+    } 
+}).addTo(map);
+        
+     var nuclearLayer = L.geoJson(plants, {
+    pointToLayer: function(feature,latlng) {
+        return L.circleMarker(latlng);
+    },
+    filter: function(feature) {
+        if(feature.properties.fuel_source.Nuclear) {
+            return feature;
+        }
+    },
+    style: function(feature) {
+        return {
+            color: '#00FFFF',
+            fillColor: '#00FFFF',
+            weight: 1,
+            stroke: 1,
+            fillOpacity: .8,
+            radius: getRadius(feature.properties.fuel_source.Nuclear)
+        } 
+    } 
+}).addTo(map);
+        
+        function getRadius(area) {
+                     var radius = Math.sqrt(area/Math.PI);
+                     return radius * .6;
+                 };
                   
     </script>
     
