@@ -76,6 +76,15 @@
       
       tiles.addTo(map);
         
+        var radiusCircle = L.circle([0, 0], 500000, {
+            fillColor: 'white',
+            fillOpacity: .1,
+            color: 'yellow',
+            opacity: .3,
+            stroke: false,
+            weight: 3,
+        }).addTo(map);
+        
 var coalLayer = L.geoJson(plants, {
           pointToLayer: function(feature,latlng) {
               return L.circleMarker(latlng);
@@ -153,6 +162,8 @@ var coalLayer = L.geoJson(plants, {
         var fuelSourceLayers = L.layerGroup([coalLayer, hydroLayer, nuclearLayer]);
         
         map.on('click', function(e) {
+            
+            radiusCircle.setLatLng(e.latlng);
             
             fuelSourceLayers.eachLayer(function(l) {
                 l.eachLayer(function(layer) {
