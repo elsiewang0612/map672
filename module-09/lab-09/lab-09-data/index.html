@@ -154,105 +154,29 @@ L.control.layers(null, sourcesLayers, { collapsed:false }).addTo(map);
 var fuelSourceLayers = L.layerGroup([coalLayer, hydroLayer, nuclearLayer]);
         
         map.on('click', function(e) {
-        fuelSourceLayers.eachLayer(function(layer) {
-        var distance = e.latlng.distanceTo(layer.getLatLng())/1000;
-
-        if(distance > 500) {
-            layer.setStyle({
-                stroke: false,
-                fill: false
-            });  
-        } else {
-            layer.setStyle({
-                stroke: true,
-                fill: true  
-            });  
-            layer.bindPopup("<b>"+fuelSourceLayers[layer].properties.plant_name+"</b><br>"
-                            +"<b>Fuel Source</b>: "+fuelSourceLayers[layer].properties.fuel_source+"</b><br>"
-                +"I am <b>"+distance.toLocaleString()+"km</b><br> from the click point.");
-        } 
-    });
-});        
-        
-
-        
-        
-        
-        
-        
-        
-        
-//    var commonStyles = {
-//        weight: 1,
-//        stroke: 1,
-//        fillOpacity: .8
-//};    
-//    
-//    var layerInfo = {
-//    coalLayer: {source:"Coal", color:'#1f78b4'}, 
-//    hydroLayer: {source:"Hydro", color:'#FFFF00'},
-//    nuclearLayer: {source:"Nuclear", color:'#00FFFF'}
-//};
-//
-//var geoJsonLayers = {};
-//
-//for(var layer in layerInfo) {     
-//    geoJsonLayers[layer] = L.geoJson(plants, {
-//        pointToLayer: function(feature,latlng) {
-//            return L.circleMarker(latlng, commonStyles);
-//        },
-//        filter: function(feature) {
-//            if(feature.properties.fuel_source[layerInfo[layer].source]) {
-//                return feature;
-//            }
-//        },
-//        style: function(feature) {
-//            return {
-//                color: layerInfo[layer].color,
-//                fillColor: layerInfo[layer].color,
-//                radius: getRadius(feature.properties.fuel_source[layerInfo[layer].source])
-//            } 
-//        }
-//        
-//    }).addTo(map);        
-//    }
-//
-//map.on('click', function(e) {
-//        geoJsonLayers.eachLayer(function(layer) {
-//        var distance = e.latlng.distanceTo(layer.getLatLng())/1000;
-//
-//        if(distance > 500) {
-//            layer.setStyle({
-//                stroke: false,
-//                fill: false
-//            });  
-//        } else {
-//            layer.setStyle({
-//                stroke: true,
-//                fill: true  
-//            });  
-//            layer.bindPopup("<b>"+geoJsonLayers[layer].properties.plant_name+"</b><br>"
-//                            +"<b>Fuel Source</b>: "+geoJsonLayers[layer].properties.fuel_source+"</b><br>"
-//                +"I am <b>"+distance.toLocaleString()+"km</b><br> from the click point.");
-//        } 
-//    });
-//});        
-//        
-//        
-//function getRadius(val) {
-//    var radius = Math.sqrt(val/Math.PI);
-//    return radius * .8;   
-//}
-//
-//        
-//var sourcesLables = {
-//    "<b style='color:#1f78b4'>Coal</b>": geoJsonLayers.coalLayer,
-//    "<b style='color:#FFFF00'>Hydro</b>": geoJsonLayers.hydroLayer,
-//    "<b style='color:#00FFFF; text-shadow: 0px 0px 1px #333;'>Nuclear</b>": geoJsonLayers.nuclearLayer
-//}
-//
-//L.control.layers(null, sourcesLabels, { collapsed:false }).addTo(map);
-                  
+            
+            fuelSourceLayers.eachLayer(function(l) {
+                l.eachLayer(function(layer) {
+                    
+                    var distance = e.latlng.distanceTo(layer.getLatLng())/1000;
+                    if(distance > 500) {
+                        layer.setStyle({
+                            stroke: false,
+                            fill: false
+                        });  
+                    } else {
+                        layer.setStyle({
+                            stroke: true,
+                            fill: true  
+                        });  
+             
+                        layer.bindPopup("<b>"+layer.feature.properties.plant_name+"</b><br>"
+                                        +"<b>Fuel Source</b>: "+Object.getOwnPropertyNames(layer.feature.properties.fuel_source)+"</b><br>"
+                            +"I am <b>"+distance.toLocaleString()+"km</b><br> from the click point.");
+                    }        
+                })
+            });
+    }); 
     </script>
     
 </body>
